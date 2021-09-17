@@ -1,1 +1,322 @@
+Java cơ bản:
+bài 1:
+import java.util.Scanner;
 
+public class InHoaChuoi {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String message;
+        System.out.println("Nhap vao chuoi can in hoa: ");
+        message = sc.nextLine();
+        System.out.println("Chuoi sau khi in hoa: ");
+        System.out.println(message.toUpperCase());
+    }
+}
+
+bài 2:
+import java.util.Scanner;
+
+public class KiemTraSoNguyenTo {
+    public static void main(String args[]) {
+        int temp, n;
+        boolean isPrime = true;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("nhap so can kiem tra:");
+        n = sc.nextInt();
+        sc.close();
+        for (int i = 2; i <= n / 2; i++) {
+            temp = n % i;
+            if (temp == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime)
+            System.out.println(n + " La so nguyen to!");
+        else
+            System.out.println(n + " Khong la so nguyen to!");
+    }
+}
+
+bài 3:
+import java.util.Scanner;
+
+public class GiaiPTBac2 {
+    public static void main(String[] args) {
+        int a, b, c;
+        float x1, x2;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("nhap he so bac 2:");
+        a = sc.nextInt();
+        System.out.println("nhap he so bac 1:");
+        b = sc.nextInt();
+        System.out.println("nhap he tu do:");
+        c = sc.nextInt();
+        float del = b * b - 4 * a * c;
+        if (a == 0) {
+            if (b == 0) {
+                System.out.println("phuong trinh vo nghiem");
+            } else {
+                System.out.println("phuong trinh cos mot nghiem duy nhat:" + "x=" + (-c / b));
+
+            }
+
+        }
+        if (del > 0) {
+            x1 = (float) ((-b + Math.sqrt(del)) / (2 * a));
+            x2 = (float) ((-b - Math.sqrt(del)) / (2 * a));
+            System.out.println("phuong trinh co 2 nghiem phan biet:");
+            System.out.println("x1=" + x1);
+            System.out.println("x2=" + x2);
+        }
+        if (del == 0) {
+            x1 = (-b / (2 * a));
+            System.out.println("phuong trinh co nghiem kep la :" + "x1=x2=" + x1);
+        } else {
+            System.out.println("phuong trinh vo nghiem");
+        }
+    }
+}
+
+bài 4:
+import java.util.Scanner;
+
+public class TinhTong {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n, tong = 0, i = 1;
+        System.out.println("nhap n: ");
+        n = sc.nextInt();
+        while (i <= n) {
+            tong += i;
+            i++;
+        }
+        System.out.println("tong cua 1 den n là: " + tong);
+
+    }
+}
+
+bài 5:
+import java.util.Scanner;
+
+public class NhapvaTinhTongSoThuc {
+    public static void main(String[] args) {
+        float sum = 0, x;
+        int n;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("nhap vao so phan tu cua day la:");
+        n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("nhap vao x:");
+            x = sc.nextFloat();
+            if (x > 0) {
+                sum += x;
+            } else {
+                sum = sum + 0;
+            }
+        }
+        System.out.println("Tổng = " + sum);
+    }
+}
+
+tuần 2:
+bài 1:
+
+import java.util.Scanner;
+
+public class Diem {
+    int x;
+    int y;
+
+    void khoiTao(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    static void nhap1Diem(Diem d) {
+        System.out.println("nhập tọa độ x=");
+        Scanner sc = new Scanner(System.in);
+        d.x = sc.nextInt();
+        System.out.println("nhập tọa độ y=");
+        d.y = sc.nextInt();
+    }
+
+    public int getX(int x) {
+        return x;
+    }
+
+    public void setX() {
+        this.x = x;
+    }
+
+    public int getY(int y) {
+        return y;
+    }
+
+    public void setY() {
+        this.y = y;
+    }
+
+    void inThongTin() {
+        System.out.println("(" + x + "," + y + ")");
+    }
+
+    static float tinhKhoangCach(Diem a, Diem b) {
+        float khoangCach = (float) Math.sqrt(Math.pow((a.x - b.x), 2) + Math.pow((a.y - b.y), 2));
+        System.out.println("khoang cach tu " + "(" + a.x + "," + a.y + ")" + " toi toa do (" + b.x + "," + b.y + ") = "
+                + khoangCach);
+        return khoangCach;
+    }
+
+    public static void main(String[] args) {
+        Diem sv1 = new Diem();
+        sv1.khoiTao(10, 10);
+        sv1.inThongTin();
+        Diem sv2 = new Diem();
+        nhap1Diem(sv2);
+        sv2.inThongTin();
+        Diem O = new Diem();
+        O.khoiTao(0, 0);
+        tinhKhoangCach(sv1, O);
+        tinhKhoangCach(sv2, O);
+
+    }
+}
+
+bài 2:
+public class PhanSo {
+    int tu, mau;
+
+    public PhanSo() {
+        tu = 0;
+        mau = 1;
+    }
+
+    void khoiTao(int tu, int mau) {
+        this.tu = tu;
+        this.mau = mau;
+    }
+
+    public int getTu(int tu) {
+        return tu;
+    }
+
+    public void setTu() {
+        this.tu = tu;
+    }
+
+    public int getMau(int mau) {
+        return mau;
+    }
+
+    public void setMau() {
+        this.mau = mau;
+    }
+
+    void inPhanSo() {
+        if (tu * mau < 0) {
+            System.out.println("-" + tu + "/" + mau);
+        } else {
+            System.out.println(tu + "/" + mau);
+        }
+    }
+
+    void NgichDao(int tu, int mau) {
+        System.out.println("ngich dao cua " + tu + "/" + mau + " la:" + mau + "/" + tu);
+    }
+
+    void TraVeGiaTriThuc(int tu, int mau) {
+        System.out.println("giá trị thực của phân số " + tu + "/" + mau + " la : ");
+        System.out.println((float) tu / (float) mau);
+    }
+
+    public PhanSo cong(PhanSo a) {
+        int ctu = 0, cmau = 0;
+        ;
+        if (mau == a.mau) {
+            ctu = tu + a.tu;
+            cmau = mau;
+        } else {
+            ctu = tu * a.mau + a.tu * mau;
+            cmau = mau * a.mau;
+        }
+        PhanSo tong = new PhanSo();
+        tong.tu = ctu;
+        tong.mau = cmau;
+        return tong;
+    }
+
+    public PhanSo tru(PhanSo a) {
+        int ttu = 0, tmau = 0;
+        ;
+        if (mau == a.mau) {
+            ttu = tu - a.tu;
+            tmau = mau;
+        } else {
+            ttu = tu * a.mau - a.tu * mau;
+            tmau = mau * a.mau;
+        }
+        PhanSo hieu = new PhanSo();
+        hieu.tu = ttu;
+        hieu.mau = tmau;
+        return hieu;
+    }
+
+    public PhanSo nhan(PhanSo a) {
+        int ttu = 0;
+        int tmau = 0;
+        ttu = tu * a.tu;
+        tmau = mau * a.mau;
+        PhanSo tich = new PhanSo();
+        tich.tu = ttu;
+        tich.mau = tmau;
+        return tich;
+    }
+
+    public PhanSo chia(PhanSo a) {
+        int ttu = 0;
+        int tmau = 0;
+        ttu = tu * a.mau;
+        tmau = mau * a.tu;
+        PhanSo thuong = new PhanSo();
+        thuong.tu = ttu;
+        thuong.mau = tmau;
+        return thuong;
+    }
+
+    public static void main(String[] args) {
+        PhanSo ps1 = new PhanSo();
+        ps1.tu = 8;
+        ps1.mau = 3;
+        ps1.khoiTao(ps1.tu, ps1.mau);
+        System.out.println("phân số thứ nhất là :");
+        ps1.inPhanSo();
+        ps1.NgichDao(ps1.tu, ps1.mau);
+        ps1.TraVeGiaTriThuc(ps1.tu, ps1.mau);
+        PhanSo ps2 = new PhanSo();
+        ps2.tu = 2;
+        ps2.mau = 3;
+        ps2.khoiTao(ps2.tu, ps2.mau);
+        System.out.println("phân số thứ hai là :");
+        ps2.inPhanSo();
+        PhanSo pstong = new PhanSo();
+        PhanSo pshieu = new PhanSo();
+        PhanSo pstich = new PhanSo();
+        PhanSo psthuong = new PhanSo();
+        pstong = ps1.cong(ps2);
+        System.out.println("Tổng của 2 phân số " + ps1.tu + "/" + ps1.mau + " và " + ps2.tu + "/" + ps2.mau + "là : ");
+        pstong.inPhanSo();
+        pshieu = ps1.tru(ps2);
+        System.out.println("Hiệu của 2 phân số " + ps1.tu + "/" + ps1.mau + " và " + ps2.tu + "/" + ps2.mau + "là : ");
+        pshieu.inPhanSo();
+        pstich = ps1.nhan(ps2);
+        System.out.println("Tích của 2 phân số " + ps1.tu + "/" + ps1.mau + " và " + ps2.tu + "/" + ps2.mau + "là : ");
+        pstich.inPhanSo();
+        psthuong = ps1.chia(ps2);
+        System.out
+                .println("Thương của 2 phân số " + ps1.tu + "/" + ps1.mau + " và " + ps2.tu + "/" + ps2.mau + "là : ");
+        psthuong.inPhanSo();
+    }
+}
